@@ -1,6 +1,6 @@
 {
     "name": "@skrekliam/feedback",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
     "author": "skrekliam",
@@ -30,5 +30,11 @@
         "scheduler": "^0.23.2"
     },
     "license": "ISC",
-    "description": "A simple feedback module for your website"
+    "description": "A simple feedback module for your website",
+    "files": [
+        "dist",
+        "README.md",
+        "CHANGELOG.md"
+
+    ]
 }
