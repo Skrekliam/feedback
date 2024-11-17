@@ -5,7 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [0.1.1] - 2024-03-14
+## [0.1.2] - 2024-11-17
+
+### Added
+- Specified files to be included in npm package (`dist`, `README.md`, `CHANGELOG.md`)
+
+### Changed
+- Updated TypeScript configuration with explicit `rootDir` setting
+- Improved package.json structure and metadata
+- Fix previous changelog date
+
+## [0.1.1] - 2024-11-17
 
 ### Added
 - Email masking utility function
@@ -36,5 +46,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - React ^18.0.0
 - React DOM ^18.0.0
 
+[0.1.2]: https://github.com/Skrekliam/feedback/compare/v0.1.1...v0.1.2
 [0.1.1]: https://github.com/Skrekliam/feedback/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/Skrekliam/feedback/releases/tag/v0.1.0 
