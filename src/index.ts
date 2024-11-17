@@ -1,2 +1,3 @@
-export { default as FeedbackModule } from "./components/FeedbackModule";
+export { FeedbackModule } from "./components/FeedbackModule";
 export * from "./types";
+export * from "./utils";

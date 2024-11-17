@@ -17,6 +17,8 @@ npm install @skrekliam/feedback
 - 🎨 Tailwind CSS styling
 - ✨ TypeScript support
 - 💾 Database agnostic - works with any storage solution
+- 👤 Anonymous posting support
+- 📧 Built-in email masking utility
 
 ## Database Flexibility
 
@@ -77,6 +79,7 @@ const handleFeedbackCreate = async (message: string) => {
 
 ```typescript
 import { FeedbackModule } from "@skrekliam/feedback";
+
 function App() {
   // Handler for creating new feedback
   const handleFeedbackCreate = async (message: string) => {
@@ -92,10 +95,12 @@ function App() {
       },
     };
   };
+
   // Handler for voting on feedback
   const handleVote = async (feedbackId: string) => {
     // Implement your voting logic here
   };
+
   return (
     <FeedbackModule
       onFeedbackCreate={handleFeedbackCreate}
@@ -105,7 +110,6 @@ function App() {
   );
 }
 ```
-
 
 ## Props
 
@@ -117,14 +121,38 @@ function App() {
 
 ## Types
 
-See [types.ts](./src/types/index.ts) for more details.
+```typescript
+interface Feedback {
+  id: string;
+  message: string;
+  votes: number;
+  hasVoted?: boolean;
+  name?: string;
+}
+
+interface FeedbackModuleProps {
+  onFeedbackCreate: (message: string) => Promise<Feedback>;
+  onVote: (feedbackId: string) => Promise<void>;
+  initialFeedbacks?: Feedback[];
+}
+```
+
+## Utility Functions
+
+### Email Masking
+The package includes a built-in email masking utility:
+
+```typescript
+import { maskEmail } from "@skrekliam/feedback";
+
+const maskedEmail = maskEmail("user@example.com"); // Returns "u***r@example.com"
+```
 
 ## Styling
 
 The component comes with built-in Tailwind CSS classes. Make sure your project includes Tailwind CSS to maintain the default styling, or override the classes as needed.
 
 ## Development
-
 
 ### Install dependencies
 

@@ -3,10 +3,7 @@ export interface Feedback {
   message: string;
   votes: number;
   hasVoted?: boolean;
-  user: {
-    name?: string;
-    email: string;
-  };
+  name?: string;
 }
 
 export interface FeedbackModuleProps {

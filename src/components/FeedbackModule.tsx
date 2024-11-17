@@ -3,16 +3,8 @@
 import React, { useState } from "react";
 import { Feedback, FeedbackModuleProps } from "../types";
 // Helper function to mask email
-const maskEmail = (email: string) => {
-  const [username, domain] = email?.split("@");
-  const maskedUsername =
-    username.charAt(0) +
-    "*".repeat(username.length - 2) +
-    username.charAt(username.length - 1);
-  return `${maskedUsername}@${domain}`;
-};
 
-export default function FeedbackModule({
+export function FeedbackModule({
   onFeedbackCreate,
   onVote,
   initialFeedbacks = [],
@@ -60,11 +52,11 @@ export default function FeedbackModule({
             }
             autoFocus
             placeholder="Enter your feedback..."
-            className="flex-1 px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="flex-1 px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
           />
           <button
             type="submit"
-            className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="px-4 py-2 bg-primary text-white rounded-md hover:bg-primary/80 focus:outline-none focus:ring-2 focus:ring-primary"
           >
             Submit
           </button>
@@ -82,8 +74,8 @@ export default function FeedbackModule({
                 onClick={() => handleVote(feedback.id)}
                 className={`flex flex-col gap-1 items-center px-2 py-2 rounded-md ${
                   feedback.hasVoted
-                    ? "bg-blue-500 text-white"
-                    : "bg-gray-100 hover:bg-gray-200"
+                    ? "bg-primary text-white"
+                    : "bg-secondary hover:bg-secondary/80"
                 }`}
               >
                 <svg
@@ -102,7 +94,7 @@ export default function FeedbackModule({
               </button>
               <div className="flex-1">
                 <p className="text-sm text-gray-500 mb-1">
-                  {feedback?.user?.name || maskEmail(feedback?.user?.email)}
+                  {feedback?.name || "Anonymous"}
                 </p>
                 <p>{feedback.message}</p>
               </div>
